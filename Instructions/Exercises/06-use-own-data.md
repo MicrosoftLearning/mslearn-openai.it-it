@@ -113,6 +113,7 @@ A questo punto si aggiungeranno alcuni dati per una società fittizia di agenti 
 
 1. Nella pagina **Carica file** caricare i PDF scaricati e quindi selezionare **Avanti**.
 1. Nella pagina **Gestione dati** selezionare **Parola chiave** nell'elenco a discesa come tipo di ricerca e quindi selezionare **Avanti**.
+1. Nella pagina **Connessione dati** selezionare **chiave API**.
 1. Nella pagina **Rivedere e completare** selezionare **Salva e chiudi** per aggiungere i dati. Questa operazione potrebbe richiedere alcuni minuti, durante la quale è necessario lasciare aperta la finestra. Al termine, verrà visualizzata l'origine dati, la risorsa di ricerca e l'indice specificati nella sezione **Installazione**.
 
     > **Suggerimento**: In alcuni casi la connessione tra il nuovo indice di ricerca e Azure OpenAI Studio richiede troppo tempo. Se si è atteso qualche minuto e la connessione non è ancora avvenuta, controllare le risorse di AI Search nel portale Azure. Se viene visualizzato l'indice completato, è possibile scollegare la connessione dati in Azure OpenAI Studio e aggiungerla nuovamente specificando un'origine dati di Azure AI Search e selezionando il nuovo indice.
@@ -174,7 +175,7 @@ Sono state fornite applicazioni sia per C# sia per Python ed entrambe le app pre
     pip install openai==1.13.3
     ```
 
-3. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di configurazione per la lingua preferita
+3. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di configurazione per il linguaggio preferita
 
     - **C#**: appsettings.json
     - **Python**: .env
