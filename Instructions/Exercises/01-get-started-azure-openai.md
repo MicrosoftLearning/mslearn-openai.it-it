@@ -17,7 +17,7 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 1. Accedere al **portale di Azure** all'indirizzo `https://portal.azure.com`.
 2. Creare una risorsa **OpenAI di Azure** con le impostazioni seguenti:
-    - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al Servizio OpenAI di Azure*
+    - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al servizio OpenAI di Azure*
     - **Gruppo di risorse**: *Scegliere o creare un gruppo di risorse*
     - **Area**: *Effettuare una scelta **casuale** da una delle aree seguenti*\*
         - Australia orientale
@@ -48,14 +48,13 @@ Il servizio OpenAI di Azure offre un portale basato sul Web denominato **Azure O
     Dopo aver aperto la nuova scheda, è possibile chiudere tutte le notifiche banner per i nuovi servizi di anteprima visualizzati nella parte superiore della pagina di Azure OpenAI Studio.
 
 1. Nel riquadro a sinistra della pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+    - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
     - **Versione modello**: Aggiornamento automatico per impostazione predefinita
-    - **Nome distribuzione**: *nome univoco di propria scelta*
-    - **Opzioni avanzate**
-        - **Filtro contenuto**: Predefinito
-        - **Tipo di distribuzione**: Standard
-        - **Limite di velocità dei token al minuto**: 5K\*
-        - **Abilitare la quota dinamica**: Abilitato
+    - **Tipo di distribuzione**: Standard
+    - **Limite di velocità dei token al minuto**: 5K\*
+    - **Filtro contenuto**: Predefinito
+    - **Abilitare la quota dinamica**: Abilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
@@ -167,4 +166,4 @@ Ora che sono state esaminate alcune delle funzionalità di un modello di intelli
 
 ## Eseguire la pulizia
 
-Terminato l’utilizzo della risorsa OpenAI di Azure, ricordarsi di eliminare la distribuzione o l'intera risorsa nel **portale di Azure** all'indirizzo `https://portal.azure.com`.
+Terminato l'utilizzo della risorsa OpenAI di Azure, ricordarsi di eliminare la distribuzione o l'intera risorsa nel **portale di Azure** all'indirizzo `https://portal.azure.com`.
