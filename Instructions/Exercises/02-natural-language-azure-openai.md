@@ -17,7 +17,7 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 1. Accedere al **portale di Azure** all'indirizzo `https://portal.azure.com`.
 2. Creare una risorsa **OpenAI di Azure** con le impostazioni seguenti:
-    - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al Servizio OpenAI di Azure*
+    - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al servizio OpenAI di Azure*
     - **Gruppo di risorse**: *Scegliere o creare un gruppo di risorse*
     - **Area**: *Effettuare una scelta **casuale** da una delle aree seguenti*\*
         - Australia orientale
@@ -43,14 +43,13 @@ OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio
 
 1. Nella pagina **Panoramica** della risorsa OpenAI di Azure, usare il pulsante **Passa a Azure OpenAI Studio** per aprire Azure OpenAI Studio in una nuova scheda del browser.
 2. Nella pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+    - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
     - **Versione modello**: Aggiornamento automatico per impostazione predefinita
-    - **Nome distribuzione**: *Nome univoco a propria scelta. Questo nome verrà utilizzato più avanti nel lab.*
-    - **Opzioni avanzate**
-        - **Filtro contenuto**: Predefinito
-        - **Tipo di distribuzione**: Standard
-        - **Limite di velocità dei token al minuto**: 5K\*
-        - **Abilitare la quota dinamica**: Abilitato
+    - **Tipo di distribuzione**: Standard
+    - **Limite di velocità dei token al minuto**: 5K\*
+    - **Filtro contenuto**: Predefinito
+    - **Abilitare la quota dinamica**: Abilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
@@ -89,17 +88,17 @@ Sono state fornite applicazioni sia per C# che per Python. Entrambe le app prese
     pip install openai==1.13.3
     ```
 
-3. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di configurazione per la lingua preferita
+3. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di configurazione per il linguaggio preferita
 
     - **C#**: appsettings.json
     - **Python**: .env
     
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - **Nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Azure OpenAI Studio).
+    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Azure OpenAI Studio).
 5. Salvare il file di configurazione.
 
-## Aggiungere codice per usare il Servizio OpenAI di Azure
+## Aggiungere codice per usare il servizio OpenAI di Azure
 
 A questo punto, è possibile usare l'SDK di OpenAI di Azure per usare il modello distribuito.
 
@@ -312,4 +311,4 @@ Nella maggior parte delle applicazioni reali, la possibilità di fare riferiment
 
 ## Eseguire la pulizia
 
-Terminato l’utilizzo della risorsa OpenAI di Azure, ricordarsi di eliminare la distribuzione o l'intera risorsa nel **portale di Azure** all'indirizzo `https://portal.azure.com`.
+Terminato l'utilizzo della risorsa OpenAI di Azure, ricordarsi di eliminare la distribuzione o l'intera risorsa nel **portale di Azure** all'indirizzo `https://portal.azure.com`.

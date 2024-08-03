@@ -43,14 +43,13 @@ OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio
 
 1. Nella pagina **Panoramica** della risorsa OpenAI di Azure, usare il pulsante **Passa a Azure OpenAI Studio** per aprire Azure OpenAI Studio in una nuova scheda del browser.
 2. Nella pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
-    - **Modello**: gpt-35-turbo-16k *(deve essere questo modello per usare le funzionalità di questo esercizio)*
+    - **Nome distribuzione**: *nome univoco di propria scelta*
+    - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
     - **Versione modello**: Aggiornamento automatico per impostazione predefinita
-    - **Nome distribuzione**: *Nome univoco a propria scelta. Questo nome verrà utilizzato più avanti nel lab.*
-    - **Opzioni avanzate**
-        - **Filtro contenuto**: Predefinito
-        - **Tipo di distribuzione**: Standard
-        - **Limite di velocità dei token al minuto**: 5K\*
-        - **Abilitare la quota dinamica**: Abilitato
+    - **Tipo di distribuzione**: Standard
+    - **Limite di velocità dei token al minuto**: 5K\*
+    - **Filtro contenuto**: Predefinito
+    - **Abilitare la quota dinamica**: Abilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
