@@ -39,17 +39,19 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Azure OpenAI Studio per distribuire un modello.
+Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Studio AI della piattaforma Azure per distribuire un modello.
 
-1. Nella pagina **Panoramica** della risorsa OpenAI di Azure, usare il pulsante **Passa a Azure OpenAI Studio** per aprire Azure OpenAI Studio in una nuova scheda del browser.
-2. Nella pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+> **Nota**: quando si usa Studio AI della piattaforma AI, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa OpenAI di Azure, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
-    - **Versione modello**: Aggiornamento automatico per impostazione predefinita
+    - **Versione del modello**: *Usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
     - **Filtro contenuto**: Predefinito
-    - **Abilitare la quota dinamica**: Abilitato
+    - **Abilitare la quota dinamica**: disabilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
@@ -57,12 +59,11 @@ OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio
 
 Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel playground Chat.
 
-1. In **Azure OpenAI Studio** in `https://oai.azure.com`, nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da tre sezioni principali:
-    - **Installazione**: usato per impostare il contesto per le risposte del modello.
+1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
+    - **Configurazione**: utilizzata per selezionare la distribuzione, definire il messaggio di sistema e impostare i parametri per interagire con la distribuzione.
     - **Sessione chat**: consente di inviare messaggi di chat e visualizzare le risposte.
-    - **Configurazione**: usata per configurare le impostazioni per la distribuzione del modello.
-2. Nella sezione **Configurazione** verificare che sia selezionata la distribuzione del modello.
-3. Nell'area **Installazione**, selezionare il modello di messaggio di sistema predefinito per impostare il contesto per la sessione di chat. Il messaggio di sistema predefinito è *Si è un assistente di intelligenza artificiale che consente agli utenti di trovare informazioni*.
+2. In **Distribuzioni** assicurarsi che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
+1. Esaminare il **Messaggio di sistema** predefinito, che deve essere *Questo è un assistente di intelligenza artificiale che aiuta gli utenti a trovare informazioni.*
 4. Nella **sessione di chat**inviare la query seguente:
 
     ```prompt
@@ -79,9 +80,9 @@ Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel pla
 
     La risposta fornisce una descrizione dell'articolo. Si supponga tuttavia di voler usare un formato più specifico per la categorizzazione degli articoli.
 
-5. Nella sezione **Installazione**, modificare il messaggio di sistema in `You are a news aggregator that categorizes news articles.`
+5. Nella sezione **Configurazione**, modificare il messaggio di sistema in `You are a news aggregator that categorizes news articles.`
 
-6. Nella sezione **Esempi** del nuovo messaggio di sistema selezionare il pulsante **Aggiungi**. Aggiungere quindi l’esempio seguente.
+6. Sotto il nuovo messaggio di sistema, selezionare il pulsante **Aggiungi sezione** e scegliere **Esempi**. Aggiungere quindi l’esempio seguente.
 
     **Utente**:
     
@@ -126,7 +127,7 @@ Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel pla
     Entertainment
     ```
 
-8. Usare il pulsante **Applica modifiche ** nella parte superiore della sezione **Installazione** per aggiornare il messaggio di sistema.
+8. Usare il pulsante **Applica modifiche** nella parte superiore della sezione **Configurazione** per salvare le modifiche.
 
 9. Nella sezione **Sessione di chat** immettere nuovamente il prompt seguente:
 
@@ -144,7 +145,7 @@ Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel pla
 
     La combinazione di un messaggio di sistema più specifico e alcuni esempi di query e risposte previste generano un formato coerente per i risultati.
 
-10. Nella sezione **Installazione** modificare il messaggio di sistema nel modello predefinito, che deve essere `You are an AI assistant that helps people find information.` senza esempi. Applicare quindi le modifiche.
+10. Modificare il messaggio di sistema riportandolo al modello predefinito, che deve essere `You are an AI assistant that helps people find information.` senza esempi. Applicare quindi le modifiche.
 
 11. Nella sezione **Sessione di chat** immettere il prompt seguente:
 
@@ -209,7 +210,7 @@ Sono state fornite applicazioni sia per C# sia per Python e entrambe le app hann
     
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Azure OpenAI Studio).
+    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Studio AI della piattaforma Azure).
 5. Salvare il file di configurazione.
 
 ## Aggiungere codice per usare il servizio OpenAI di Azure
@@ -339,6 +340,8 @@ Ora che l'app è stata configurata, eseguirla per inviare la richiesta al modell
     - It specializes in elephants 
     - Call for donations to be given at our website
     ```
+
+    > **Suggerimento**: è possibile che la digitazione automatica nella macchina virtuale non funzioni correttamente con i prompt su più righe. In questo caso, copiare l'intero prompt e incollarlo in Visual Studio Code.
 
 1. Osservare l'output. Questa volta, probabilmente si vedrà il formato di un messaggio di posta elettronica con gli animali specifici inclusi, nonché la chiamata per le donazioni.
 1. Immettere quindi le istruzioni seguenti che specificano anche il contenuto:

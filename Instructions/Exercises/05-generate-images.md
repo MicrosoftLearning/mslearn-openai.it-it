@@ -16,7 +16,7 @@ Questo esercizio richiederà circa **25** minuti.
 Prima di poter usare OpenAI di Azure per generare immagini, è necessario effettuare il provisioning di una risorsa OpenAI di Azure della sottoscrizione di Azure. La risorsa deve trovarsi in un'area in cui sono supportati i modelli DALL-E.
 
 1. Accedere al **portale di Azure** all'indirizzo `https://portal.azure.com`.
-2. Creare una risorsa **OpenAI di Azure** con le impostazioni seguenti:
+1. Creare una risorsa **OpenAI di Azure** con le impostazioni seguenti:
     - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al Servizio OpenAI, tra cui DALL-E*
     - **Gruppo di risorse**: *Scegliere o creare un gruppo di risorse*
     - **Area**: *scegliere **Stati Uniti orientali** o **Svezia centrale**\*
@@ -25,21 +25,29 @@ Prima di poter usare OpenAI di Azure per generare immagini, è necessario effett
 
     > \* Modelli DALL-E 3 sono disponibili solo nelle risorse del servizio Azure OpenAI nelle aree **Stati Uniti orientali** e **Svezia centrale**.
 
-3. Attendere il completamento della distribuzione. Passare quindi alla risorsa OpenAI di Azure distribuita nel portale di Azure.
+1. Attendere il completamento della distribuzione. Passare quindi alla risorsa OpenAI di Azure distribuita nel portale di Azure.
+1. Nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso fino alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non ce n'è già una disponibile per DALL-E 3, creare una nuova distribuzione del modello **dall-e-3** con le impostazioni seguenti:
+    - **Nome della distribuzione**: dalle3
+    - **Versione del modello**: *usare la versione predefinita*
+    - **Tipo di distribuzione**: Standard
+    - **Unità di capacità**: 1K
+    - **Filtro contenuto**: Predefinito
+    - **Abilitare la quota dinamica**: disabilitato
+1. Dopo la distribuzione, tornare alla pagina **Immagini** nel riquadro a sinistra.
 
-## Esplorare la generazione di immagini nel playground DALL-E
+## Esplorare la generazione di immagini nel playground delle immagini
 
-È possibile usare il playground DALL-E in **Azure OpenAI Studio** per sperimentare la generazione di immagini.
+È possibile usare il playground delle immagini in **Studio AI della piattaforma Azure** per sperimentare la generazione di immagini.
 
-1. Nella pagina **Panoramica** della risorsa OpenAI di Azure nel portale di Azure, usare il pulsante **Esplora** per aprire Azure OpenAI Studio in una nuova scheda del browser. In alternativa, accedere direttamente ad [Azure OpenAI Studio](https://oai.azure.com) in `https://oai.azure.com`.
-2. Nella sezione **Playground** selezionare il playground **DALL-E**. Verrà creata automaticamente una distribuzione del modello DALL-E denominato *Dalle3*.
-3. Nella casella **Prompt** immettere una descrizione di un'immagine da generare. Ad esempio, `An elephant on a skateboard` Selezionare quindi **Genera** e visualizzare l'immagine generata.
+1. Nella sezione **Playground immagini** la distribuzione di DALL-E 3 dovrebbe essere selezionata automaticamente. Se così non fosse, selezionarla dall'elenco a discesa delle distribuzioni.
+1. Nella casella **Prompt** immettere una descrizione di un'immagine da generare. Ad esempio, `An elephant on a skateboard` Selezionare quindi **Genera** e visualizzare l'immagine generata.
 
-    ![Il playground DALL-E in Azure OpenAI Studio con un'immagine generata.](../media/dall-e-playground.png)
+    ![Playground delle immagini in Studio AI della piattaforma Azure con un'immagine generata.](../media/images-playground.png)
 
-4. Modificare il prompt per fornire una descrizione più specifica. Ad esempio, `An elephant on a skateboard in the style of Picasso`. Generare quindi la nuova immagine ed esaminare i risultati.
+1. Modificare il prompt per fornire una descrizione più specifica. Ad esempio, `An elephant on a skateboard in the style of Picasso`. Generare quindi la nuova immagine ed esaminare i risultati.
 
-    ![Il playground DALL-E in Azure OpenAI Studio con due mmagini generati.](../media/dall-e-playground-new-image.png)
+    ![Playground delle immagini in Studio AI della piattaforma Azure con due immagini generate.](../media/images-playground-new-style.png)
 
 ## Usare l'API REST per generare immagini
 
@@ -87,6 +95,8 @@ Ora si è pronti per esplorare il codice usato per chiamare l'API REST e generar
     - Il codice effettua una richiesta HTTPS all'endpoint per il servizio, inclusa la chiave per il servizio nell'intestazione. Entrambi questi valori vengono ottenuti dal file di configurazione.
     - La richiesta include alcuni parametri, tra cui la richiesta dei parametri sui quali l'immagine deve essere basata, il numero di immagini da generare e le dimensioni delle immagini generate.
     - La risposta include una richiesta rivista che il modello DALL-E ha estrapolato dal prompt fornito dall'utente per renderlo più descrittivo e l'URL per l'immagine generata.
+    
+    > **Importante**: se alla distribuzione è stato assegnato un nome diverso da quello consigliato, cioè *dalle3*, sarà necessario aggiornare il codice per usare il nome della distribuzione.
 
 ### Eseguire l'app
 

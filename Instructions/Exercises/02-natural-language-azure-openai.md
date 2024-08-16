@@ -39,17 +39,19 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Azure OpenAI Studio per distribuire un modello.
+Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di Azure OpenAI usando Studio AI della piattaforma Azure per distribuire un modello.
 
-1. Nella pagina **Panoramica** della risorsa OpenAI di Azure, usare il pulsante **Passa a Azure OpenAI Studio** per aprire Azure OpenAI Studio in una nuova scheda del browser.
-2. Nella pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+> **Nota**: quando si usa Studio AI della piattaforma Azure, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
-    - **Versione modello**: Aggiornamento automatico per impostazione predefinita
+    - **Versione del modello**: *usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
     - **Filtro contenuto**: Predefinito
-    - **Abilitare la quota dinamica**: Abilitato
+    - **Abilitare la quota dinamica**: disabilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
@@ -95,7 +97,7 @@ Sono state fornite applicazioni sia per C# che per Python. Entrambe le app prese
     
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Azure OpenAI Studio).
+    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Studio AI della piattaforma Azure).
 5. Salvare il file di configurazione.
 
 ## Aggiungere codice per usare il servizio OpenAI di Azure

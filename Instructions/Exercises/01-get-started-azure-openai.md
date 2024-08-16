@@ -5,7 +5,7 @@ lab:
 
 # Introduzione al Servizio OpenAI di Azure
 
-Il Servizio OpenAI di Azure offre i modelli di intelligenza artificiale generativi sviluppati da OpenAI alla piattaforma Azure, consentendo di sviluppare potenti soluzioni di intelligenza artificiale che traggono vantaggio dalla sicurezza, dalla scalabilità e dall'integrazione di servizi forniti dalla piattaforma cloud di Azure. In questo esercizio si apprenderà come iniziare a usare Azure OpenAI effettuando il provisioning del servizio come risorsa di Azure e usando Azure OpenAI Studio per distribuire ed esplorare i modelli di intelligenza artificiale generativa.
+Il Servizio OpenAI di Azure offre i modelli di intelligenza artificiale generativi sviluppati da OpenAI alla piattaforma Azure, consentendo di sviluppare potenti soluzioni di intelligenza artificiale che traggono vantaggio dalla sicurezza, dalla scalabilità e dall'integrazione di servizi forniti dalla piattaforma cloud di Azure. In questo esercizio si imparerà come iniziare a usare Azure OpenAI effettuando il provisioning del servizio come risorsa di Azure e usando Studio AI della piattaforma Azure per distribuire ed esplorare i modelli di intelligenza artificiale generativa.
 
 Nello scenario per questo esercizio si assumerà il ruolo di sviluppatore di software che è stato incaricato di implementare un agente di intelligenza artificiale che può usare l'intelligenza artificiale generativa per aiutare un'organizzazione di marketing a migliorare l'efficacia nel raggiungere i clienti e pubblicizzare nuovi prodotti. Le tecniche usate nell'esercizio possono essere applicate a qualsiasi scenario in cui un'organizzazione vuole usare modelli di intelligenza artificiale generativa per aiutare i dipendenti a essere più efficaci e produttivi.
 
@@ -39,37 +39,33 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-Il servizio OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Azure OpenAI Studio per distribuire un modello.
+Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di Azure OpenAI usando Studio AI della piattaforma Azure per distribuire un modello.
 
-> **Nota**: Quando si usa Azure OpenAI Studio, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+> **Nota**: quando si usa Studio AI della piattaforma Azure, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
 
-1. Nel portale di Azure, nella pagina **Panoramica** della risorsa OpenAI di Azure, usare il pulsante **Passa a Azure OpenAI Studio** per aprire Azure OpenAI Studio in una nuova scheda del browser.
-
-    Dopo aver aperto la nuova scheda, è possibile chiudere tutte le notifiche banner per i nuovi servizi di anteprima visualizzati nella parte superiore della pagina di Azure OpenAI Studio.
-
-1. Nel riquadro a sinistra della pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
-    - **Versione modello**: Aggiornamento automatico per impostazione predefinita
+    - **Versione del modello**: *usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
     - **Filtro contenuto**: Predefinito
-    - **Abilitare la quota dinamica**: Abilitato
+    - **Abilitare la quota dinamica**: disabilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
 ## Usare il playground Chat
 
-Ora che è stato distribuito un modello, è possibile usarlo per generare risposte in base ai prompt del linguaggio naturale. Il playground *Chat* in Azure OpenAI Studio offre un'interfaccia chatbot per i modelli GPT 3.5 e versioni successive.
+Ora che è stato distribuito un modello, è possibile usarlo per generare risposte in base ai prompt del linguaggio naturale. Il playground di *Chat* in Studio AI della piattaforma Azure offre un'interfaccia chatbot per i modelli GPT 3.5 e versioni successive.
 
 > **Nota:** Il playground *Chat* usa l'API* ChatCompletions* anziché l'API *Completamenti* meno recente usata dal playground *Completamenti*. Il playground Completamenti viene fornito per la compatibilità con i modelli meno recenti.
 
-1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da tre pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso a seconda della risoluzione dello schermo):
-    - **Installazione**: usato per impostare il contesto per le risposte del modello.
+1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina del playground di **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
+    - **Configurazione**: utilizzata per selezionare la distribuzione, definire il messaggio di sistema e impostare i parametri per interagire con la distribuzione.
     - **Sessione chat**: consente di inviare messaggi di chat e visualizzare le risposte.
-    - **Configurazione**: usata per configurare le impostazioni per la distribuzione del modello.
-1. Nel riquadro **Configurazione** verificare che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
-1. Nel pannello **Installazione**, esaminare il **messaggio di sistema predefinito**, che deve essere *Si è un assistente di intelligenza artificiale che aiuta gli utenti a trovare informazioni.* Il messaggio di sistema è incluso nelle richieste inviate al modello e fornisce il contesto per le risposte del modello; impostando le aspettative su come un agente di intelligenza artificiale basato sul modello deve interagire con l'utente.
+1. In **Distribuzioni** assicurarsi che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
+1. Esaminare il **Messaggio di sistema** predefinito, che deve essere *Questo è un assistente di intelligenza artificiale che aiuta gli utenti a trovare informazioni.* Il messaggio di sistema è incluso nelle richieste inviate al modello e fornisce il contesto per le risposte del modello; impostando le aspettative su come un agente di intelligenza artificiale basato sul modello deve interagire con l'utente.
 1. Nel pannello **Sessione chat** immettere la query utente `How can I use generative AI to help me market a new product?`
 
     > **Nota**: È possibile ricevere una risposta che la distribuzione dell'API non è ancora pronta. In tal caso, attendere alcuni minuti e riprovare.
@@ -84,7 +80,7 @@ Ora che è stato distribuito un modello, è possibile usarlo per generare rispos
 
 Finora è stata eseguita una conversazione di chat con il modello in base al messaggio di sistema predefinito. È possibile personalizzare la configurazione del sistema in modo da avere un maggiore controllo sui tipi di risposte generate dal modello.
 
-1. Nel pannello **Installazione**, in **Usare un modello di messaggio di sistema**, selezionare il modello **Assistente scrittura marketing** e verificare di voler aggiornare il messaggio di sistema.
+1. Nella barra degli strumenti principale selezionare gli **esempi di prompt** e usare il modello di prompt **Assistente scrittura marketing**.
 1. Esaminare il nuovo messaggio di sistema, che descrive come un agente di intelligenza artificiale deve usare il modello per rispondere.
 1. Nel pannello **Sessione chat** immettere la query utente `Create an advertisement for a new scrubbing brush`.
 1. Esaminare la risposta, che deve includere la copia pubblicitaria per una spazzola. La copia può essere abbastanza estesa e creativa.
@@ -96,7 +92,7 @@ Finora è stata eseguita una conversazione di chat con il modello in base al mes
 
     La risposta dovrebbe ora essere più utile, ma per avere ancora più controllo sull'output del modello, è possibile fornire uno o più *esempi di inquadrature* su cui devono essere basate le risposte.
 
-1. Nel pannello **Impostazioni** selezionare **Add (Aggiungi )** in **Esempi**. Digitare quindi il messaggio e la risposta seguente nelle caselle designate:
+1. Nella casella di testo **Messaggio di sistema** espandere l'elenco a discesa **Aggiungi sezione** e selezionare **Esempi**. Digitare quindi il messaggio e la risposta seguente nelle caselle designate:
 
     **Utente**:
     
@@ -139,7 +135,7 @@ Si è appreso come il messaggio di sistema, gli esempi e le richieste possono ai
 
 ## Distribuire il modello in un'app Web
 
-Ora che sono state esaminate alcune delle funzionalità di un modello di intelligenza artificiale generativa nel playground di Azure OpenAI Studio, è possibile distribuire un'app Web di Azure per fornire un'interfaccia dell'agente di intelligenza artificiale di base tramite cui gli utenti possono chattare con il modello.
+Ora che sono state esaminate alcune delle funzionalità di un modello di intelligenza artificiale generativa nel playground di Studio AI della piattaforma Azure, è possibile distribuire un'app Web di Azure per fornire un'interfaccia dell'agente di intelligenza artificiale di base tramite cui gli utenti possono chattare con il modello.
 
 1. In alto a destra nella pagina del Playground **Chat**, nel menu **Distribuisci in**, selezionare **Nuova app Web**.
 1. Nella finestra di dialogo **Distribuisci in un'app Web** creare una nuova app Web con le impostazioni seguenti:
@@ -162,7 +158,7 @@ Ora che sono state esaminate alcune delle funzionalità di un modello di intelli
 
     > **Nota**: Il *modello* è stato distribuito in un'app Web, ma questa distribuzione non include le impostazioni di sistema e i parametri impostati nel playground; pertanto la risposta potrebbe non riflettere gli esempi specificati nel playground. In uno scenario reale, aggiungere la logica all'applicazione per modificare il prompt in modo che includa i dati contestuali appropriati per i tipi di risposta che si desidera generare. Questo tipo di personalizzazione esula dall'ambito di questo esercizio introduttivo, ma è possibile ottenere informazioni sulle tecniche di progettazione richieste e sulle API OpenAI di Azure in altri esercizi e documentazione del prodotto.
 
-1. Al termine dell'esperimento con il modello nell'app Web, chiudere la scheda dell'app Web nel browser per tornare ad Azure OpenAI Studio.
+1. Al termine dell'esperimento con il modello nell'app Web, chiudere la scheda dell'app Web nel browser per tornare a Studio AI della piattaforma Azure.
 
 ## Eseguire la pulizia
 
