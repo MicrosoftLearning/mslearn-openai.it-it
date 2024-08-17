@@ -39,17 +39,19 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Azure OpenAI Studio per distribuire un modello.
+Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di Azure OpenAI usando Studio AI della piattaforma Azure per distribuire un modello.
 
-1. Nella pagina **Panoramica** della risorsa OpenAI di Azure, usare il pulsante **Passa a Azure OpenAI Studio** per aprire Azure OpenAI Studio in una nuova scheda del browser.
-2. Nella pagina **Distribuzioni** di Azure OpenAI Studio, visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+> **Nota**: quando si usa Studio AI della piattaforma Azure, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
-    - **Versione modello**: Aggiornamento automatico per impostazione predefinita
+    - **Versione del modello**: *usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
     - **Filtro contenuto**: Predefinito
-    - **Abilitare la quota dinamica**: Abilitato
+    - **Abilitare la quota dinamica**: disabilitato
 
     > \* Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
@@ -57,13 +59,12 @@ OpenAI di Azure offre un portale basato sul Web denominato **Azure OpenAI Studio
 
 Prima di usarlo nella propria app, esaminare il modo in cui OpenAI di Azure può generare e spiegare il codice nel playground della chat.
 
-1. In **Azure OpenAI Studio** in `https://oai.azure.com`, nella sezione **Playground** selezionare la pagina **Chat**. La pagina del playground **Chat** è costituita da tre sezioni principali:
-    - **Installazione**: usato per impostare il contesto per le risposte del modello.
+1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina del playground di **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
+    - **Configurazione**: utilizzata per selezionare la distribuzione, definire il messaggio di sistema e impostare i parametri per interagire con la distribuzione.
     - **Sessione chat**: consente di inviare messaggi di chat e visualizzare le risposte.
-    - **Configurazione**: usata per configurare le impostazioni per la distribuzione del modello.
-2. Nella sezione **Configurazione** verificare che sia selezionata la distribuzione del modello.
-3. Nell'area **Installazione** impostare il messaggio di sistema su `You are a programming assistant helping write code` e applicare le modifiche.
-4. Nella **sessione di chat** inviare la query seguente:
+1. In **Distribuzioni** assicurarsi che sia selezionata la distribuzione del modello.
+1. Nell'area **Messaggio di sistema** impostare il messaggio di sistema su `You are a programming assistant helping write code` e applicare le modifiche.
+1. Nella **sessione di chat** inviare la query seguente:
 
     ```
     Write a function in python that takes a character and a string as input, and returns how many times the character appears in the string
@@ -71,11 +72,11 @@ Prima di usarlo nella propria app, esaminare il modo in cui OpenAI di Azure può
 
     Il modello risponderà probabilmente con una funzione, con una spiegazione su cosa fa la funzione e come chiamarla.
 
-5. Inviare quindi la richiesta `Do the same thing, but this time write it in C#`.
+1. Inviare quindi la richiesta `Do the same thing, but this time write it in C#`.
 
     Il modello ha probabilmente risposto in modo molto simile alla prima volta, ma questa con il codice scritto in C#. È possibile riformulare la richiesta per un linguaggio diverso a propria scelta o per una funzione per completare un'attività diversa, ad esempio il ripristino della stringa di input.
 
-6. Si esaminerà ora l'uso dell'intelligenza artificiale per comprendere il codice. Inviare la richiesta seguente come messaggio utente.
+1. Si esaminerà ora l'uso dell'intelligenza artificiale per comprendere il codice. Inviare la richiesta seguente come messaggio utente.
 
     ```
     What does the following function do?  
@@ -153,7 +154,7 @@ Sono state fornite applicazioni sia per C# che per Python, oltre a un file di te
     
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Azure OpenAI Studio).
+    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Studio AI della piattaforma Azure).
 5. Salvare il file di configurazione.
 
 ## Aggiungere codice per usare il modello del servizio OpenAI di Azure
