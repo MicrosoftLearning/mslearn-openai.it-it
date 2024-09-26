@@ -39,15 +39,15 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di Azure OpenAI usando Studio AI della piattaforma Azure per distribuire un modello.
+Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Studio AI della piattaforma Azure per distribuire un modello.
 
-> **Nota**: quando si usa Studio AI della piattaforma Azure, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+> **Nota**: quando si usa Studio AI della piattaforma AI, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
 
-1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa OpenAI di Azure, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
 1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
-    - **Versione del modello**: *usare la versione predefinita*
+    - **Versione del modello**: *Usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
     - **Filtro contenuto**: Predefinito
