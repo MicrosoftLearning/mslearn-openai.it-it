@@ -78,6 +78,7 @@ Per distribuire questi modelli, si userà Studio AI.
 1. Nel portale di Azure passare alla risorsa Azure OpenAI. Usare quindi il collegamento per aprire la risorsa in **Studio AI della piattaforma Azure**.
 1. In Studio AI della piattaforma Azure, nella pagina **Distribuzioni**, visualizzare le distribuzioni di modelli esistenti. Creare quindi una nuova distribuzione del modello di base **text-embedding-ada-002** con le impostazioni seguenti:
     - **Nome della distribuzione**: text-embedding-ada-002
+    - **Modello**: text-embedding-ada-002
     - **Versione del modello**: *versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
@@ -114,7 +115,7 @@ Per semplificare l'uso dei propri dati in una richiesta, questi verranno indiciz
     - **Distribuzione del modello**: text-embedding-ada-002
     - **Tipo di autenticazione**: chiave API
     - **Sono consapevole che la connessione a un Servizio OpenAI di Azure comporterà costi aggiuntivi per il mio account**: selezionato
-1. Nella pagina successiva <u>non</u> selezionare le opzioni per vettorizzare le immagini o estrarre i dati con competenze di intelligenza artificiale.
+1. Nella pagina successiva <u>non</u> selezionare l'opzione per vettorizzare le immagini o estrarre i dati con competenze di intelligenza artificiale.
 1. Nella pagina successiva abilitare la classificazione semantica e pianificare l'esecuzione dell'indicizzatore una sola volta.
 1. Nella pagina finale impostare il **prefisso nome oggetti** su `margies-index` e quindi creare l'indice.
 
