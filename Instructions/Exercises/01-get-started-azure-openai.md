@@ -39,15 +39,15 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di Azure OpenAI usando Studio AI della piattaforma Azure per distribuire un modello.
+Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Studio AI della piattaforma Azure per distribuire un modello.
 
-> **Nota**: quando si usa Studio AI della piattaforma Azure, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+> **Nota**: quando si usa Studio AI della piattaforma AI, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
 
-1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa OpenAI di Azure, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
 1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
-    - **Versione del modello**: *usare la versione predefinita*
+    - **Versione del modello**: *Usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
     - **Filtro contenuto**: Predefinito
@@ -61,7 +61,7 @@ Ora che è stato distribuito un modello, è possibile usarlo per generare rispos
 
 > **Nota:** Il playground *Chat* usa l'API* ChatCompletions* anziché l'API *Completamenti* meno recente usata dal playground *Completamenti*. Il playground Completamenti viene fornito per la compatibilità con i modelli meno recenti.
 
-1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina del playground di **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
+1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
     - **Configurazione**: utilizzata per selezionare la distribuzione, definire il messaggio di sistema e impostare i parametri per interagire con la distribuzione.
     - **Sessione chat**: consente di inviare messaggi di chat e visualizzare le risposte.
 1. In **Distribuzioni** assicurarsi che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
@@ -136,6 +136,8 @@ Si è appreso come il messaggio di sistema, gli esempi e le richieste possono ai
 ## Distribuire il modello in un'app Web
 
 Ora che sono state esaminate alcune delle funzionalità di un modello di intelligenza artificiale generativa nel playground di Studio AI della piattaforma Azure, è possibile distribuire un'app Web di Azure per fornire un'interfaccia dell'agente di intelligenza artificiale di base tramite cui gli utenti possono chattare con il modello.
+
+> **Notare**: Studio AI della piattaforma Azure è ancora in anteprima. Per alcuni utenti, la distribuzione nell'app Web non può essere eseguita a causa di un bug nel modello in Studio. In tal caso, ignorare questa sezione.
 
 1. In alto a destra nella pagina del Playground **Chat**, nel menu **Distribuisci in**, selezionare **Nuova app Web**.
 1. Nella finestra di dialogo **Distribuisci in un'app Web** creare una nuova app Web con le impostazioni seguenti:
