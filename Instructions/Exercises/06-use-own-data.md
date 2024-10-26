@@ -161,7 +161,7 @@ Sono state fornite applicazioni sia per C# sia per Python ed entrambe le app pre
     
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - Il **nome della distribuzione** specificato per la distribuzione del modello (disponibile nella pagina **Distribuzioni** in Studio AI della piattaforma Azure).
+    - Il **nome della distribuzione** specificato per la distribuzione modello gpt-35-turbo (disponibile nella pagina **Distribuzioni** in Studio AI della piattaforma Azure).
     - L'endpoint per il servizio di ricerca (il valore **Url** nella pagina di panoramica per la risorsa di ricerca nel portale di Azure).
     - Una **chiave** per la risorsa di ricerca (disponibile nella pagina **Chiavi** per la risorsa di ricerca nel portale di Azure. È possibile usare una delle chiavi amministratore)
     - Nome dell'indice di ricerca (che deve essere `margies-index`).
