@@ -5,7 +5,7 @@ lab:
 
 # Introduzione al Servizio OpenAI di Azure
 
-Il Servizio OpenAI di Azure offre i modelli di intelligenza artificiale generativi sviluppati da OpenAI alla piattaforma Azure, consentendo di sviluppare potenti soluzioni di intelligenza artificiale che traggono vantaggio dalla sicurezza, dalla scalabilità e dall'integrazione di servizi forniti dalla piattaforma cloud di Azure. In questo esercizio si imparerà come iniziare a usare Azure OpenAI effettuando il provisioning del servizio come risorsa di Azure e usando Studio AI della piattaforma Azure per distribuire ed esplorare i modelli di intelligenza artificiale generativa.
+Il Servizio OpenAI di Azure offre i modelli di intelligenza artificiale generativi sviluppati da OpenAI alla piattaforma Azure, consentendo di sviluppare potenti soluzioni di intelligenza artificiale che traggono vantaggio dalla sicurezza, dalla scalabilità e dall'integrazione di servizi forniti dalla piattaforma cloud di Azure. In questo esercizio verrà illustrato come iniziare a usare Azure OpenAI effettuando il provisioning del servizio come risorsa di Azure e usando Fonderia Azure AI per distribuire ed esplorare i modelli di IA generativa.
 
 Nello scenario per questo esercizio si assumerà il ruolo di sviluppatore di software che è stato incaricato di implementare un agente di intelligenza artificiale che può usare l'intelligenza artificiale generativa per aiutare un'organizzazione di marketing a migliorare l'efficacia nel raggiungere i clienti e pubblicizzare nuovi prodotti. Le tecniche usate nell'esercizio possono essere applicate a qualsiasi scenario in cui un'organizzazione vuole usare modelli di intelligenza artificiale generativa per aiutare i dipendenti a essere più efficaci e produttivi.
 
@@ -39,12 +39,12 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-Azure offre un portale basato sul Web denominato **Studio AI della piattaforma Azure**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Si inizierà l'esplorazione di OpenAI di Azure usando Studio AI della piattaforma Azure per distribuire un modello.
+Azure offre un portale basato sul Web denominato **portale di Azure AI Foundry**, che è possibile usare per distribuire, gestire ed esplorare i modelli. Verrà iniziata l'esplorazione di OpenAI di Azure usando il portale di Azure AI Foundry per distribuire un modello.
 
-> **Nota**: quando si usa Studio AI della piattaforma AI, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
+> **Nota**: quando si usa il portale di Azure AI Foundry, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
 
-1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa OpenAI di Azure, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
-1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa OpenAI di Azure, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare al **portale di AI Foundry** (precedentemente Studio AI).
+1. Nel portale di Azure AI Foundry, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
     - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
     - **Versione del modello**: *Usare la versione predefinita*
@@ -57,7 +57,7 @@ Azure offre un portale basato sul Web denominato **Studio AI della piattaforma A
 
 ## Usare il playground Chat
 
-Ora che è stato distribuito un modello, è possibile usarlo per generare risposte in base ai prompt del linguaggio naturale. Il playground di *Chat* in Studio AI della piattaforma Azure offre un'interfaccia chatbot per i modelli GPT 3.5 e versioni successive.
+Ora che è stato distribuito un modello, è possibile usarlo per generare risposte in base ai prompt del linguaggio naturale. Il playground di *Chat* nel Portale Fonderia Azure AI offre un'interfaccia chatbot per i modelli GPT 3.5 e versioni successive.
 
 > **Nota:** Il playground *Chat* usa l'API* ChatCompletions* anziché l'API *Completamenti* meno recente usata dal playground *Completamenti*. Il playground Completamenti viene fornito per la compatibilità con i modelli meno recenti.
 
@@ -135,9 +135,9 @@ Si è appreso come il messaggio di sistema, gli esempi e le richieste possono ai
 
 ## Distribuire il modello in un'app Web
 
-Ora che sono state esaminate alcune delle funzionalità di un modello di intelligenza artificiale generativa nel playground di Studio AI della piattaforma Azure, è possibile distribuire un'app Web di Azure per fornire un'interfaccia dell'agente di intelligenza artificiale di base tramite cui gli utenti possono chattare con il modello.
+Ora che sono state esaminate alcune delle funzionalità di un modello di IA generativa nel playground di Fonderia Azure AI, è possibile distribuire un'app Web di Azure per fornire un'interfaccia dell'agente di intelligenza artificiale di base tramite cui gli utenti possono chattare con il modello.
 
-> **Notare**: Studio AI della piattaforma Azure è ancora in anteprima. Per alcuni utenti, la distribuzione nell'app Web non può essere eseguita a causa di un bug nel modello in Studio. In tal caso, ignorare questa sezione.
+> **Nota**: per alcuni utenti, la distribuzione nell'app Web non può essere eseguita a causa di un bug nel modello in Studio. In tal caso, ignorare questa sezione.
 
 1. In alto a destra nella pagina del Playground **Chat**, nel menu **Distribuisci in**, selezionare **Nuova app Web**.
 1. Nella finestra di dialogo **Distribuisci in un'app Web** creare una nuova app Web con le impostazioni seguenti:
@@ -160,7 +160,7 @@ Ora che sono state esaminate alcune delle funzionalità di un modello di intelli
 
     > **Nota**: Il *modello* è stato distribuito in un'app Web, ma questa distribuzione non include le impostazioni di sistema e i parametri impostati nel playground; pertanto la risposta potrebbe non riflettere gli esempi specificati nel playground. In uno scenario reale, aggiungere la logica all'applicazione per modificare il prompt in modo che includa i dati contestuali appropriati per i tipi di risposta che si desidera generare. Questo tipo di personalizzazione esula dall'ambito di questo esercizio introduttivo, ma è possibile ottenere informazioni sulle tecniche di progettazione richieste e sulle API OpenAI di Azure in altri esercizi e documentazione del prodotto.
 
-1. Al termine dell'esperimento con il modello nell'app Web, chiudere la scheda dell'app Web nel browser per tornare a Studio AI della piattaforma Azure.
+1. Al termine dell'esperimento con il modello nell'app Web, chiudere la scheda dell'app Web nel browser per tornare al Portale Fonderia Azure AI.
 
 ## Eseguire la pulizia
 

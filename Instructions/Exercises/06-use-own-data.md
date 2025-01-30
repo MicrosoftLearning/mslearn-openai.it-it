@@ -73,10 +73,10 @@ In questo esercizio si useranno due modelli di intelligenza artificiale:
 - Un modello di incorporamento di testo per *vettorizzare* il testo nelle brochure, così da poterlo indicizzare in modo efficiente per l'uso nel radicamento dei prompt.
 - Un modello GPT che l'applicazione può usare per generare risposte ai prompt basate sui propri dati.
 
-Per distribuire questi modelli, si userà Studio AI.
+Per distribuire questi modelli, si userà Fonderia AI.
 
-1. Nel portale di Azure passare alla risorsa Azure OpenAI. Usare quindi il collegamento per aprire la risorsa in **Studio AI della piattaforma Azure**.
-1. In Studio AI della piattaforma Azure, nella pagina **Distribuzioni**, visualizzare le distribuzioni di modelli esistenti. Creare quindi una nuova distribuzione del modello di base **text-embedding-ada-002** con le impostazioni seguenti:
+1. Nel portale di Azure passare alla risorsa Azure OpenAI. Usare quindi il collegamento per aprire la risorsa nel **Portale Fonderia Azure AI**.
+1. Nel Portale Fonderia Azure AI, nella pagina **Distribuzioni**, visualizzare le distribuzioni di modelli esistenti. Creare quindi una nuova distribuzione del modello di base **text-embedding-ada-002** con le impostazioni seguenti:
     - **Nome della distribuzione**: text-embedding-ada-002
     - **Modello**: text-embedding-ada-002
     - **Versione del modello**: *versione predefinita*
@@ -97,7 +97,7 @@ Per distribuire questi modelli, si userà Studio AI.
 
 ## Creare un indice
 
-Per semplificare l'uso dei propri dati in una richiesta, questi verranno indicizzati usando Azure AI Search. Durante il processo di indicizzazione, si userà il modello di incorporamento del testo distribuito in precedenza per *vettorizzare* i dati di testo. In questo modo, ogni token di testo nell'indice sarà rappresentato da vettori numerici, rendendolo così compatibile con il modo in cui un modello di intelligenza artificiale generativa rappresenta il testo.
+Per semplificare l'uso dei propri dati in una richiesta, questi verranno indicizzati usando Azure AI Search. Durante il processo di indicizzazione, verrà utilizzato il modello di incorporamento del testo distribuito in precedenza per *vettorizzare* i dati di testo. In questo modo, ogni token di testo nell'indice sarà rappresentato da vettori numerici, rendendolo così compatibile con il modo in cui un modello di IA generativa rappresenta il testo.
 
 1. Nel portale di Azure passare alla risorsa Azure AI Search.
 1. Nella pagina **Panoramica** selezionare **Importa e vettorizza dati**.
@@ -151,7 +151,7 @@ Sono state fornite applicazioni sia per C# sia per Python ed entrambe le app pre
     **Python**:
 
     ```
-    pip install openai==1.13.3
+    pip install openai==1.55.3
     ```
 
 3. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di configurazione per il linguaggio preferita
@@ -161,7 +161,7 @@ Sono state fornite applicazioni sia per C# sia per Python ed entrambe le app pre
     
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - Il **nome della distribuzione** specificato per la distribuzione modello gpt-35-turbo (disponibile nella pagina **Distribuzioni** in Studio AI della piattaforma Azure).
+    - Il **nome della distribuzione** specificato per la distribuzione modello gpt-35-turbo (disponibile nella pagina **Distribuzioni** nel Portale Fonderia Azure AI).
     - L'endpoint per il servizio di ricerca (il valore **Url** nella pagina di panoramica per la risorsa di ricerca nel portale di Azure).
     - Una **chiave** per la risorsa di ricerca (disponibile nella pagina **Chiavi** per la risorsa di ricerca nel portale di Azure. È possibile usare una delle chiavi amministratore)
     - Nome dell'indice di ricerca (che deve essere `margies-index`).

@@ -26,8 +26,8 @@ Prima di poter usare OpenAI di Azure per generare immagini, è necessario effett
     > \* Modelli DALL-E 3 sono disponibili solo nelle risorse del servizio Azure OpenAI nelle aree **Stati Uniti orientali** e **Svezia centrale**.
 
 1. Attendere il completamento della distribuzione. Passare quindi alla risorsa OpenAI di Azure distribuita nel portale di Azure.
-1. Nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso fino alla sezione **Attività iniziali** e selezionare il pulsante per passare a **Studio AI**.
-1. In Studio AI della piattaforma Azure, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non ce n'è già una disponibile per DALL-E 3, creare una nuova distribuzione del modello **dall-e-3** con le impostazioni seguenti:
+1. Nella pagina **Panoramica** per la risorsa Azure OpenAI, scorrere verso il basso fino alla sezione **Attività iniziali** e selezionare il pulsante per passare al **Portale Fonderia AI** (in precedenza Studio AI).
+1. Nel portale di Azure AI Foundry, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non ce n'è già una disponibile per DALL-E 3, creare una nuova distribuzione del modello **dall-e-3** con le impostazioni seguenti:
     - **Nome della distribuzione**: dalle3
     - **Versione del modello**: *usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
@@ -38,16 +38,16 @@ Prima di poter usare OpenAI di Azure per generare immagini, è necessario effett
 
 ## Esplorare la generazione di immagini nel playground delle immagini
 
-È possibile usare il playground delle immagini in **Studio AI della piattaforma Azure** per sperimentare la generazione di immagini.
+È possibile usare il playground delle immagini nel **Portale Fonderia Azure AI** per sperimentare la generazione di immagini.
 
 1. Nella sezione **Playground immagini** la distribuzione di DALL-E 3 dovrebbe essere selezionata automaticamente. Se così non fosse, selezionarla dall'elenco a discesa delle distribuzioni.
 1. Nella casella **Prompt** immettere una descrizione di un'immagine da generare. Ad esempio, `An elephant on a skateboard` Selezionare quindi **Genera** e visualizzare l'immagine generata.
 
-    ![Playground delle immagini in Studio AI della piattaforma Azure con un'immagine generata.](../media/images-playground.png)
+    ![Playground delle immagini nel Portale Fonderia Azure AI con un'immagine generata.](../media/images-playground.png)
 
 1. Modificare il prompt per fornire una descrizione più specifica. Ad esempio, `An elephant on a skateboard in the style of Picasso`. Generare quindi la nuova immagine ed esaminare i risultati.
 
-    ![Playground delle immagini in Studio AI della piattaforma Azure con due immagini generate.](../media/images-playground-new-style.png)
+    ![Playground delle immagini nel Portale Fonderia Azure AI con due immagini generate.](../media/images-playground-new-style.png)
 
 ## Usare l'API REST per generare immagini
 
