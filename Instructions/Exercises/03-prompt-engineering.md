@@ -59,12 +59,12 @@ Azure offre un portale basato sul Web denominato **portale di Azure AI Foundry**
 
 Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel playground Chat.
 
-1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
+1. Nel riquadro laterale sinistro, nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
     - **Configurazione**: utilizzata per selezionare la distribuzione, definire il messaggio di sistema e impostare i parametri per interagire con la distribuzione.
-    - **Sessione chat**: consente di inviare messaggi di chat e visualizzare le risposte.
-2. In **Distribuzioni** assicurarsi che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
-1. Esaminare il **Messaggio di sistema** predefinito, che deve essere *Questo è un assistente di intelligenza artificiale che aiuta gli utenti a trovare informazioni.*
-4. Nella **sessione di chat**inviare la query seguente:
+    - **Cronologia chat**: consente di inviare messaggi di chat e visualizzare le risposte.
+2. In **Distribuzione** assicurarsi che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
+1. Esaminare il messaggio di sistema predefinito contenuto nella casella di testo immediatamente sotto la distribuzione selezionata, che deve essere *Questo è un assistente di intelligenza artificiale che aiuta gli utenti a trovare informazioni.*
+4. Nella **Cronologia chat** inviare la query seguente:
 
     ```prompt
     What kind of article is this?
@@ -80,7 +80,7 @@ Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel pla
 
     La risposta fornisce una descrizione dell'articolo. Si supponga tuttavia di voler usare un formato più specifico per la categorizzazione degli articoli.
 
-5. Nella sezione **Configurazione**, modificare il messaggio di sistema in `You are a news aggregator that categorizes news articles.`
+5. Nella sezione **Installazione**, modificare il messaggio di sistema in `You are a news aggregator that categorizes news articles.`
 
 6. Sotto il nuovo messaggio di sistema, selezionare il pulsante **Aggiungi sezione** e scegliere **Esempi**. Aggiungere quindi l’esempio seguente.
 
@@ -127,9 +127,9 @@ Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel pla
     Entertainment
     ```
 
-8. Usare il pulsante **Applica modifiche** nella parte superiore della sezione **Configurazione** per salvare le modifiche.
+8. Usare il pulsante **Applica modifiche** sotto la casella di testo del messaggio di sistema nella sezione **Configurazione** per salvare le modifiche.
 
-9. Nella sezione **Sessione di chat** immettere nuovamente il prompt seguente:
+9. Nella sezione **Cronologia chat** inviare nuovamente il prompt seguente:
 
     ```prompt
     What kind of article is this?
@@ -147,7 +147,7 @@ Per iniziare, si esamineranno alcune tecniche di progettazione richieste nel pla
 
 10. Modificare il messaggio di sistema riportandolo al modello predefinito, che deve essere `You are an AI assistant that helps people find information.` senza esempi. Applicare quindi le modifiche.
 
-11. Nella sezione **Sessione di chat** immettere il prompt seguente:
+11. Nella sezione **Cronologia chat** inviare il prompt seguente:
 
     ```prompt
     # 1. Create a list of animals
@@ -359,7 +359,7 @@ Ora che l'app è stata configurata, eseguirla per inviare la richiesta al modell
     - Rescue name is Contoso 
     - It specializes in elephants, as well as zebras and giraffes 
     - Call for donations to be given at our website 
-    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 1. Osservare l'output e vedere come il messaggio di posta elettronica è cambiato in base alle istruzioni chiare.
@@ -378,7 +378,7 @@ Ora che l'app è stata configurata, eseguirla per inviare la richiesta al modell
     - Rescue name is Contoso 
     - It specializes in elephants, as well as zebras and giraffes 
     - Call for donations to be given at our website 
-    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 1. Osservare l'output. Questa volta probabilmente si vedrà il messaggio di posta elettronica in un formato simile, ma con un tono molto più informale. Probabilmente si vedranno anche scherzi inclusi!
