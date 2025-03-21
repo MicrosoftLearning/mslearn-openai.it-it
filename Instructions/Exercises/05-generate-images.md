@@ -43,8 +43,6 @@ Prima di poter usare OpenAI di Azure per generare immagini, è necessario effett
 1. Nella sezione **Playground immagini** la distribuzione di DALL-E 3 dovrebbe essere selezionata automaticamente. Se così non fosse, selezionarla dall'elenco a discesa delle distribuzioni.
 1. Nella casella **Prompt** immettere una descrizione di un'immagine da generare. Ad esempio, `An elephant on a skateboard` Selezionare quindi **Genera** e visualizzare l'immagine generata.
 
-    ![Playground delle immagini nel Portale Fonderia Azure AI con un'immagine generata.](../media/images-playground.png)
-
 1. Modificare il prompt per fornire una descrizione più specifica. Ad esempio, `An elephant on a skateboard in the style of Picasso`. Generare quindi la nuova immagine ed esaminare i risultati.
 
     ![Playground delle immagini nel Portale Fonderia Azure AI con due immagini generate.](../media/images-playground-new-style.png)
