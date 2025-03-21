@@ -1,11 +1,10 @@
 ---
 lab:
-  title: Generare immagini con l'IA
+  title: Generare immagini con l'intelligenza artificiale
   description: Informazioni su come usare un modello OpenAI DALL-E per generare immagini.
-  status: new
 ---
 
-# Generare immagini con l'IA
+# Generare immagini con l'intelligenza artificiale
 
 In questo esercizio si usa il modello di IA generativa OpenAI DALL-E per generare immagini. Si svilupperà l'app usando Fonderia Azure AI e il Servizio OpenAI di Azure.
 
@@ -54,18 +53,18 @@ A questo punto è possibile distribuire un modello DALL-E per supportare la gene
 
 Prima di creare un'applicazione client, testare il modello DALL-E nel playground.
 
-1. Nella pagina relativa al modello DALL-E distribuito, selezionare **Apri nel playground** (o nella pagina **Playground**, aprire il **playground delle immagini**).
-1. Assicurarsi che sia selezionata la distribuzione del modello DALL-E. Quindi, nella casella **Prompt** immettere un prompt, ad esempio `Create an image of an robot eating spaghetti`.
+1. Nella pagina relativa al modello DALL-E distribuito selezionare **Apri nel playground** (o nella pagina **Playgrounds**, aprire il **playground delle immagini**).
+1. Assicurarsi che sia selezionata la distribuzione modello DALL-E. Quindi, nella casella **Prompt**, immettere un prompt, ad esempio `Create an image of an robot eating spaghetti`.
 1. Esaminare l'immagine risultante nel playground:
 
     ![Screenshot del playground delle immagini con un'immagine generata.](../media/images-playground.png)
 
-1. Immettere una richiesta di completamento, ad esempio `Show the robot in a restaurant`, ed esaminare l'immagine risultante.
+1. Immettere una richiesta di completamento, ad esempio `Show the robot in a restaurant` e rivedere l'immagine risultante.
 1. Continuare a eseguire il test con nuove richieste per affinare l'immagine fino a quando non è soddisfacente.
 
 ## Creare un'applicazione client
 
-Il modello sembra funzionare nel playground. A questo punto è possibile usare Azure OpenAI SDK per usarlo in un'applicazione client.
+Il modello sembra funzionare nel playground. A questo punto è possibile usare l'SDK di Azure OpenAI per usarlo in un'applicazione client.
 
 > **Suggerimento**: è possibile scegliere di sviluppare la soluzione usando Python o Microsoft C#. Seguire le istruzioni nella sezione appropriata per la lingua scelta.
 
@@ -139,7 +138,7 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare A
 
     Il file viene aperto in un editor di codice.
 
-1. Nel file di codice sostituire il segnaposto **your_project_endpoint** con la stringa di connessione per il progetto (copiato dalla pagina del progetto **Panoramica** nel Portale Fonderia Azure AI) e il segnaposto **your_model_deployment** con il nome assegnato alla distribuzione del modello DALL-E-3.
+1. Nel file di codice, sostituire il segnaposto **your_project_endpoint** con la stringa di connessione per il progetto (copiato dalla pagina **Panoramica** del progetto nel Portale Fonderia Azure AI) e il segnaposto **your_model_deployment** con il nome assegnato alla distribuzione del modello DALL-E-3.
 1. Dopo aver sostituito i segnaposto, usare il comando **CTRL+S** per salvare le modifiche e quindi usare il comando **CTRL+Q** per chiudere l'editor di codice mantenendo aperta la riga di comando di Cloud Shell.
 
 ### Scrivere codice per connettersi al progetto e chattare con il modello
@@ -271,7 +270,7 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare A
    dotnet run
     ```
 
-1. Quando richiesto, immettere una richiesta per un'immagine, ad esempio `Create an image of a robot eating pizza`. Poco dopo, l'app deve confermare che l'immagine è stata salvata.
+1. Quando richiesto, immettere una richiesta per un'immagine, ad esempio `Create an image of a robot eating pizza`. Dopo pochi minuti, l'app deve confermare che l'immagine è stata salvata.
 1. Provare a immettere altre richieste. Al termine, immettere `quit` per uscire dal programma.
 
     > **Nota**: in questa semplice app non è stata implementata la logica per conservare la cronologia delle conversazioni, quindi il modello considererà ogni prompt come una nuova richiesta, senza il contesto del prompt precedente.
@@ -288,7 +287,7 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare A
 
 ## Riepilogo
 
-In questo esercizio è stato usato Fonderia Azure AI e Azure OpenAI SDK per creare un'applicazione client che usa un modello DALL-E per generare immagini.
+In questo esercizio è stato usato Fonderia Azure AI e l'SDK di Azure OpenAI per creare un'applicazione client che usa un modello DALL-E per generare immagini.
 
 ## Eseguire la pulizia
 
