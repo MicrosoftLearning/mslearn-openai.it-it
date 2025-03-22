@@ -1,6 +1,7 @@
 ---
 lab:
   title: Usare la progettazione delle richieste nell'app
+  status: stale
 ---
 
 # Usare la progettazione delle richieste nell'app

@@ -1,6 +1,7 @@
 ---
 lab:
   title: Generare e migliorare il codice con il Servizio OpenAI di Azure
+  status: stale
 ---
 
 # Generare e migliorare il codice con il Servizio OpenAI di Azure
