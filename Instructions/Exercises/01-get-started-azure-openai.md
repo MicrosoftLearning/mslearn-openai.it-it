@@ -45,9 +45,9 @@ Azure offre un portale basato sul Web denominato **portale di Azure AI Foundry**
 > **Nota**: quando si usa il portale di Azure AI Foundry, è possibile visualizzare le finestre di messaggio che suggeriscono le attività da eseguire. È possibile chiuderle e seguire i passaggi di questo esercizio.
 
 1. Nel portale di Azure, nella pagina **Panoramica** per la risorsa OpenAI di Azure, scorrere verso il basso alla sezione **Attività iniziali** e selezionare il pulsante per passare al **portale di AI Foundry** (precedentemente Studio AI).
-1. Nel portale di Azure AI Foundry, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le impostazioni seguenti:
+1. Nel portale di Azure AI Foundry, nel riquadro a sinistra, selezionare la pagina **Distribuzioni** e visualizzare le distribuzioni di modelli esistenti. Se non è già disponibile, creare una nuova distribuzione del modello **gpt-4o** con le impostazioni seguenti:
     - **Nome distribuzione**: *nome univoco di propria scelta*
-    - **Modello**: gpt-35-turbo-16k *(se il modello 16k non è disponibile, scegliere gpt-35-turbo)*
+    - **Modello**: gpt-4o
     - **Versione del modello**: *Usare la versione predefinita*
     - **Tipo di distribuzione**: Standard
     - **Limite di velocità dei token al minuto**: 5K\*
@@ -58,14 +58,14 @@ Azure offre un portale basato sul Web denominato **portale di Azure AI Foundry**
 
 ## Usare il playground Chat
 
-Ora che è stato distribuito un modello, è possibile usarlo per generare risposte in base ai prompt del linguaggio naturale. Il playground di *Chat* nel Portale Fonderia Azure AI offre un'interfaccia chatbot per i modelli GPT 3.5 e versioni successive.
+Ora che è stato distribuito un modello, è possibile usarlo per generare risposte in base ai prompt del linguaggio naturale. Il playground *Chat* nel Portale Fonderia Azure AI offre un'interfaccia chatbot per i modelli GPT 4 e versioni successive.
 
 > **Nota:** Il playground *Chat* usa l'API* ChatCompletions* anziché l'API *Completamenti* meno recente usata dal playground *Completamenti*. Il playground Completamenti viene fornito per la compatibilità con i modelli meno recenti.
 
 1. Nella sezione **Playground** selezionare la pagina **Chat**. La pagina Playground **Chat** è costituita da una riga di pulsanti e da due pannelli principali (che possono essere disposti da destra a sinistra orizzontalmente o dall'alto verso il basso verticalmente a seconda della risoluzione dello schermo):
     - **Configurazione**: utilizzata per selezionare la distribuzione, definire il messaggio di sistema e impostare i parametri per interagire con la distribuzione.
     - **Sessione chat**: consente di inviare messaggi di chat e visualizzare le risposte.
-1. In **Distribuzioni** assicurarsi che sia selezionata la distribuzione del modello gpt-35-turbo-16k.
+1. In **Distribuzioni**, assicurarsi che sia selezionata la distribuzione modello gpt-4o.
 1. Esaminare il **Messaggio di sistema** predefinito, che deve essere *Questo è un assistente di intelligenza artificiale che aiuta gli utenti a trovare informazioni.* Il messaggio di sistema è incluso nelle richieste inviate al modello e fornisce il contesto per le risposte del modello; impostando le aspettative su come un agente di intelligenza artificiale basato sul modello deve interagire con l'utente.
 1. Nel pannello **Sessione chat** immettere la query utente `How can I use generative AI to help me market a new product?`
 
@@ -96,13 +96,13 @@ Finora è stata eseguita una conversazione di chat con il modello in base al mes
 1. Nella casella di testo **Messaggio di sistema** espandere l'elenco a discesa **Aggiungi sezione** e selezionare **Esempi**. Digitare quindi il messaggio e la risposta seguente nelle caselle designate:
 
     **Utente**:
-    
+
     ```prompt
     Write an advertisement for the lightweight "Ultramop" mop, which uses patented absorbent materials to clean floors.
     ```
-    
+
     **Assistente**:
-    
+
     ```prompt
     Welcome to the future of cleaning!
     
@@ -147,7 +147,7 @@ Ora che sono state esaminate alcune delle funzionalità di un modello di IA gene
     - **Gruppo di risorse**: *Il gruppo di risorse in cui è stato effettuato il provisioning della risorsa OpenAI di Azure*
     - **Posizioni**: *L'area in cui è stato effettuato il provisioning della risorsa OpenAI di Azure*
     - **Piano tariffario**: Gratuito (F1): *Se non è disponibile, selezionare Basic (B1)*
-    - **Abilitare la cronologia delle chat nell'app Web**: <u>non</u> selezionata
+    - **Abilitare la cronologia delle chat nell'app Web**: **non** selezionata
     - **Riconosco che le app Web comportano l'utilizzo dell'account**: selezionato
 1. Distribuire la nuova app Web e attendere il completamento della distribuzione (che potrebbe richiedere almeno 10 minuti)
 1. Dopo che l'app Web è stata distribuita correttamente, usare il pulsante in alto a destra nella pagina Playground **Chat** per avviare l'app Web. L'attivazione potrebbe richiedere alcuni minuti. Se richiesto, accettare la richiesta di autorizzazioni.
