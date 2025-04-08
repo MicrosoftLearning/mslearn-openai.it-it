@@ -74,15 +74,14 @@ In questo esercizio si useranno due modelli di intelligenza artificiale:
 - Un modello di incorporamento di testo per *vettorizzare* il testo nelle brochure, così da poterlo indicizzare in modo efficiente per l'uso nel radicamento dei prompt.
 - Un modello GPT che l'applicazione può usare per generare risposte ai prompt basate sui propri dati.
 
-
 ## Distribuire un modello
 
 Successivamente, verrà distribuita una risorsa modello di Azure OpenAI dall'interfaccia della riga di comando. Nell portale di Azure, selezionare **l'icona Cloud Shell** nella barra dei menu in alto e assicurarsi che il terminale sia impostato su **Bash**. Fare riferimento a questo esempio e sostituire le seguenti variabili con i valori:
 
 ```dotnetcli
 az cognitiveservices account deployment create \
-   -g *your resource group* \
-   -n *your Open AI resource* \
+   -g <your_resource_group> \
+   -n <your_OpenAI_resource> \
    --deployment-name text-embedding-ada-002 \
    --model-name text-embedding-ada-002 \
    --model-version "2"  \
@@ -91,24 +90,21 @@ az cognitiveservices account deployment create \
    --sku-capacity 5
 ```
 
-    > \* Sku-capacity is measured in thousands of tokens per minute. A rate limit of 5,000 tokens per minute is more than adequate to complete this exercise while leaving capacity for other people using the same subscription.
+> **Nota**: la capacità SKU viene misurata in migliaia di token al minuto. Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
-
-Dopo aver distribuito il modello di incorporamento del testo, creare una nuova distribuzione del modello **gpt-35-turbo-16k** con le seguenti impostazioni:
+Dopo aver distribuito il modello di incorporamento del testo, creare una nuova distribuzione del modello **gpt-4o** con le seguenti impostazioni:
 
 ```dotnetcli
 az cognitiveservices account deployment create \
-   -g *your resource group* \
-   -n *your Open AI resource* \
-   --deployment-name gpt-35-turbo-16k \
-   --model-name gpt-35-turbo-16k \
-   --model-version "0125"  \
+   -g <your_resource_group> \
+   -n <your_OpenAI_resource> \
+   --deployment-name gpt-4o \
+   --model-name gpt-4o \
+   --model-version "2024-05-13" \
    --model-format OpenAI \
    --sku-name "Standard" \
    --sku-capacity 5
 ```
-
-    > \* Sku-capacity is measured in thousands of tokens per minute. A rate limit of 5,000 tokens per minute is more than adequate to complete this exercise while leaving capacity for other people using the same subscription.
 
 ## Creare un indice
 
@@ -130,7 +126,7 @@ Per semplificare l'uso dei propri dati in una richiesta, questi verranno indiciz
     - **Distribuzione del modello**: text-embedding-ada-002
     - **Tipo di autenticazione**: chiave API
     - **Sono consapevole che la connessione a un Servizio OpenAI di Azure comporterà costi aggiuntivi per il mio account**: selezionato
-1. Nella pagina successiva <u>non</u> selezionare l'opzione per vettorizzare le immagini o estrarre i dati con competenze di intelligenza artificiale.
+1. Nella pagina successiva **non** selezionare l'opzione per vettorizzare le immagini o estrarre i dati con competenze di intelligenza artificiale.
 1. Nella pagina successiva abilitare la classificazione semantica e pianificare l'esecuzione dell'indicizzatore una sola volta.
 1. Nella pagina finale impostare il **prefisso nome oggetti** su `margies-index` e quindi creare l'indice.
 
@@ -141,7 +137,7 @@ Si esaminerà ora l'uso dei propri dati in un'app che usa l'SDK del servizio Ope
 > **Suggerimento**: Se il repository **mslearn-openai** è già stato clonato, aprirlo in Visual Studio Code. In caso contrario, eseguire i passaggi seguenti per clonarlo nell'ambiente di sviluppo.
 
 1. Avviare Visual Studio Code.
-2. Aprire il riquadro comandi (MAIUSC+CTRL+P) ed eseguire un comando **Git: Clone** per clonare il repository `https://github.com/MicrosoftLearning/mslearn-openai` in una cartella locale. Non è importante usare una cartella specifica.
+2. Aprire il riquadro (MAIUSC+CTRL+P o **Visualizza** > **Riquadro comandi...**) ed eseguire un comando **Git: Clone** per clonare il repository `https://github.com/MicrosoftLearning/mslearn-openai` in una cartella locale (non è importante usare una cartella specifica).
 3. Dopo la clonazione del repository, aprire la cartella in Visual Studio Code.
 
     > **Nota**: Se Visual Studio Code visualizza un messaggio popup per chiedere se si considera attendibile il codice che si apre, fare clic sull'opzione **Sì, considero attendibili gli autori** nel popup.
@@ -159,24 +155,25 @@ Sono state fornite applicazioni sia per C# sia per Python ed entrambe le app pre
 
     **C#:**
 
-    ```
-    dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.17
+    ```powershell
+    dotnet add package Azure.AI.OpenAI --version 2.1.0
+    dotnet add package Azure.Search.Documents --version 11.6.0
     ```
 
     **Python**:
 
-    ```
-    pip install openai==1.54.3
+    ```powershell
+    pip install openai==1.65.2
     ```
 
 3. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di configurazione per il linguaggio preferita
 
     - **C#**: appsettings.json
     - **Python**: .env
-    
+
 4. Aggiornare i valori di configurazione in modo da includere:
     - L'**endpoint** e una **chiave** della risorsa OpenAI di Azure creata (disponibile nella pagina **Chiavi ed endpoint** per la risorsa OpenAI di Azure nel portale di Azure)
-    - Il **nome della distribuzione** specificato per la distribuzione del modello gpt-35-turbo (dovrebbe essere `gpt-35-turbo-16k`.
+    - Il **nome della distribuzione** specificato per la distribuzione del modello gpt-4o (dovrebbe essere `gpt-4o`).
     - L'endpoint per il servizio di ricerca (il valore **Url** nella pagina di panoramica per la risorsa di ricerca nel portale di Azure).
     - Una **chiave** per la risorsa di ricerca (disponibile nella pagina **Chiavi** per la risorsa di ricerca nel portale di Azure. È possibile usare una delle chiavi amministratore)
     - Nome dell'indice di ricerca (che deve essere `margies-index`).
@@ -186,55 +183,62 @@ Sono state fornite applicazioni sia per C# sia per Python ed entrambe le app pre
 
 A questo punto, è possibile usare l'SDK di OpenAI di Azure per usare il modello distribuito.
 
-1. Nel riquadro **Esplora risorse**, nella cartella **CSharp** o **Python**, aprire il file di codice per il linguaggio preferito e sostituire il commento ***Configurare l'origine dati*** con il codice per aggiungere la libreria SDK di OpenAI di Azure:
+1. Nel riquadro di **Explorer**, nella cartella **CSharp** o **Python**, aprire il file di codice per la lingua preferita e sostituire il commento ***Configura l'origine dati*** con il codice dell'indice come origine dati per il completamento della chat:
 
     **C#**: ownData.cs
 
     ```csharp
     // Configure your data source
-    AzureSearchChatExtensionConfiguration ownDataConfig = new()
+    // Extension methods to use data sources with options are subject to SDK surface changes. Suppress the warning to acknowledge this and use the subject-to-change AddDataSource method.
+    #pragma warning disable AOAI001
+    
+    ChatCompletionOptions chatCompletionsOptions = new ChatCompletionOptions()
     {
-            SearchEndpoint = new Uri(azureSearchEndpoint),
-            Authentication = new OnYourDataApiKeyAuthenticationOptions(azureSearchKey),
-            IndexName = azureSearchIndex
+        MaxOutputTokenCount = 600,
+        Temperature = 0.9f,
     };
+    
+    chatCompletionsOptions.AddDataSource(new AzureSearchChatDataSource()
+    {
+        Endpoint = new Uri(azureSearchEndpoint),
+        IndexName = azureSearchIndex,
+        Authentication = DataSourceAuthentication.FromApiKey(azureSearchKey),
+    });
     ```
 
     **Python**: ownData.py
 
     ```python
-# Configure your data source
-text = input('\nEnter a question:\n')
-
-completion = client.chat.completions.create(
-    model=deployment,
-    messages=[
-        {
-            "role": "user",
-            "content": text,
-        },
-    ],
-    extra_body={
-        "data_sources":[
+    # Configure your data source
+    text = input('\nEnter a question:\n')
+    
+    completion = client.chat.completions.create(
+        model=deployment,
+        messages=[
             {
-                "type": "azure_search",
-                "parameters": {
-                    "endpoint": os.environ["AZURE_SEARCH_ENDPOINT"],
-                    "index_name": os.environ["AZURE_SEARCH_INDEX"],
-                    "authentication": {
-                        "type": "api_key",
-                        "key": os.environ["AZURE_SEARCH_KEY"],
+                "role": "user",
+                "content": text,
+            },
+        ],
+        extra_body={
+            "data_sources":[
+                {
+                    "type": "azure_search",
+                    "parameters": {
+                        "endpoint": os.environ["AZURE_SEARCH_ENDPOINT"],
+                        "index_name": os.environ["AZURE_SEARCH_INDEX"],
+                        "authentication": {
+                            "type": "api_key",
+                            "key": os.environ["AZURE_SEARCH_KEY"],
+                        }
                     }
                 }
-            }
-        ],
-    }
-)
+            ],
+        }
+    )
     ```
 
-2. Esaminare il resto del codice, notando l'uso delle *estensioni* nel corpo della richiesta usato per fornire informazioni sulle impostazioni dell'origine dati.
-
-3. Salvare le modifiche apportate al file di codice.
+1. Salvare le modifiche apportate al file di codice.
 
 ## Eseguire l'applicazione
 
