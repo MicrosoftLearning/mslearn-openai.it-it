@@ -21,16 +21,13 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
     - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al servizio OpenAI di Azure*
     - **Gruppo di risorse**: *Scegliere o creare un gruppo di risorse*
     - **Area**: *Effettuare una scelta **casuale** da una delle aree seguenti*\*
-        - Australia orientale
-        - Canada orientale
         - Stati Uniti orientali
         - Stati Uniti orientali 2
-        - Francia centrale
-        - Giappone orientale
         - Stati Uniti centro-settentrionali
+        - Stati Uniti centro-meridionali
         - Svezia centrale
-        - Svizzera settentrionale
-        - Regno Unito meridionale
+        - Stati Uniti occidentali
+        - Stati Uniti occidentali 3
     - **Nome**: *nome univoco di propria scelta*
     - **Piano tariffario**: Standard S0.
 

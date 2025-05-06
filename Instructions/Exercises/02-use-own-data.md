@@ -25,15 +25,13 @@ Per completare questo esercizio, sarà necessario disporre di:
     - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al servizio OpenAI di Azure*
     - **Gruppo di risorse**: *Scegliere o creare un gruppo di risorse*
     - **Area**: *Effettuare una scelta **casuale** da una delle aree seguenti*\*
-        - Canada orientale
         - Stati Uniti orientali
         - Stati Uniti orientali 2
-        - Francia centrale
-        - Giappone orientale
         - Stati Uniti centro-settentrionali
+        - Stati Uniti centro-meridionali
         - Svezia centrale
-        - Svizzera settentrionale
-        - Regno Unito meridionale
+        - Stati Uniti occidentali
+        - Stati Uniti occidentali 3
     - **Nome**: *nome univoco di propria scelta*
     - **Piano tariffario**: Standard S0.
 
@@ -76,7 +74,11 @@ In questo esercizio si useranno due modelli di intelligenza artificiale:
 
 ## Distribuire un modello
 
-Successivamente, verrà distribuita una risorsa modello di Azure OpenAI dall'interfaccia della riga di comando. Nell portale di Azure, selezionare **l'icona Cloud Shell** nella barra dei menu in alto e assicurarsi che il terminale sia impostato su **Bash**. Fare riferimento a questo esempio e sostituire le seguenti variabili con i valori:
+Successivamente, verranno distribuiti i modelli Azure OpenAI da Cloud Shell.
+
+1. Usare il pulsante **[\>_]** a destra della barra di ricerca, nella parte superiore della pagina, per aprire una nuova sessione di Cloud Shell nel portale di Azure selezionando un ambiente ***Bash***. Cloud Shell fornisce un'interfaccia della riga di comando in un riquadro nella parte inferiore del portale di Azure.
+
+    > **Nota**: se in precedenza è stata creata una sessione Cloud Shell che usa un ambiente *PowerShell*, passare a ***Bash***.
 
 ```dotnetcli
 az cognitiveservices account deployment create \
