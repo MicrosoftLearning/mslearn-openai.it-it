@@ -33,15 +33,13 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
     - **Sottoscrizione**: *Selezionare una sottoscrizione di Azure approvata per l'accesso al servizio OpenAI di Azure*
     - **Gruppo di risorse**: *Scegliere o creare un gruppo di risorse*
     - **Area**: *Effettuare una scelta **casuale** da una delle aree seguenti*\*
-        - Canada orientale
         - Stati Uniti orientali
         - Stati Uniti orientali 2
-        - Francia centrale
-        - Giappone orientale
         - Stati Uniti centro-settentrionali
+        - Stati Uniti centro-meridionali
         - Svezia centrale
-        - Svizzera settentrionale
-        - Regno Unito meridionale
+        - Stati Uniti occidentali
+        - Stati Uniti occidentali 3
     - **Nome**: *nome univoco di propria scelta*
     - **Piano tariffario**: Standard S0.
 
@@ -51,19 +49,25 @@ Se non è già disponibile, effettuare il provisioning di una risorsa OpenAI di 
 
 ## Distribuire un modello
 
-Successivamente, verrà distribuita una risorsa modello di Azure OpenAI dall'interfaccia della riga di comando. Fare riferimento a questo esempio e sostituire le variabili seguenti con i valori indicati in precedenza:
+Successivamente, verrà distribuita una risorsa modello di Azure OpenAI da Cloud Shell.
 
-```dotnetcli
-az cognitiveservices account deployment create \
-   -g <your_resource_group> \
-   -n <your_OpenAI_service> \
-   --deployment-name gpt-4o \
-   --model-name gpt-4o \
-   --model-version 2024-05-13 \
-   --model-format OpenAI \
-   --sku-name "Standard" \
-   --sku-capacity 5
-```
+1. Usare il pulsante **[\>_]** a destra della barra di ricerca, nella parte superiore della pagina, per aprire una nuova sessione di Cloud Shell nel portale di Azure selezionando un ambiente ***Bash***. Cloud Shell fornisce un'interfaccia della riga di comando in un riquadro nella parte inferiore del portale di Azure.
+
+    > **Nota**: se in precedenza è stata creata una sessione Cloud Shell che usa un ambiente *PowerShell*, passare a ***Bash***.
+
+1. Fare riferimento a questo esempio e sostituire le variabili seguenti con i valori indicati in precedenza:
+
+    ```dotnetcli
+    az cognitiveservices account deployment create \
+       -g <your_resource_group> \
+       -n <your_OpenAI_service> \
+       --deployment-name gpt-4o \
+       --model-name gpt-4o \
+       --model-version 2024-05-13 \
+       --model-format OpenAI \
+       --sku-name "Standard" \
+       --sku-capacity 5
+    ```
 
 > **Nota**: la capacità SKU viene misurata in migliaia di token al minuto. Un limite di 5.000 token al minuto è più che sufficiente per completare questo esercizio, lasciando capacità ad altre persone che usano la stessa sottoscrizione.
 
@@ -245,7 +249,7 @@ Ora che l'app è stata configurata, eseguirla per inviare la richiesta al modell
     - Rescue name is Contoso 
     - It specializes in elephants, as well as zebras and giraffes 
     - Call for donations to be given at our website 
-    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 1. Osservare l'output e vedere come il messaggio di posta elettronica è cambiato in base alle istruzioni chiare.
@@ -264,7 +268,7 @@ Ora che l'app è stata configurata, eseguirla per inviare la richiesta al modell
     - Rescue name is Contoso 
     - It specializes in elephants, as well as zebras and giraffes 
     - Call for donations to be given at our website 
-    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 1. Osservare l'output. Questa volta probabilmente si vedrà il messaggio di posta elettronica in un formato simile, ma con un tono molto più informale. Probabilmente si vedranno anche scherzi inclusi!

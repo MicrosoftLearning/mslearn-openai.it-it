@@ -2,6 +2,7 @@
 lab:
   title: Generare immagini con l'intelligenza artificiale
   description: Informazioni su come usare un modello OpenAI DALL-E per generare immagini.
+  status: new
 ---
 
 # Generare immagini con l'intelligenza artificiale
@@ -19,16 +20,16 @@ Per iniziare, creare un progetto Fonderia Azure AI.
     ![Screenshot del portale di Azure AI Foundry.](../media/ai-foundry-home.png)
 
 1. Nella home page, selezionare **+ Crea progetto**.
-1. Nella procedura guidata **Crea un progetto** immettere un nome di progetto appropriato per (ad esempio, `my-ai-project`) e quindi rivedere le risorse di Azure che verranno create automaticamente per supportare il progetto.
+1. Nella procedura guidata **Crea un progetto**, immettere un nome appropriato per il progetto. Se viene suggerito un hub esistente, selezionare l'opzione per crearne uno nuovo. Successivamente, esaminare le risorse Azure che verranno create automaticamente per supportare l'hub e il progetto.
 1. Selezionare **Personalizza** e specificare le impostazioni seguenti per l'hub:
-    - **Nome hub**: *un nome univoco, ad esempio `my-ai-hub`*
+    - **Nome hub**: *un nome valido per l'hub*
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*
-    - **Gruppo di risorse**: *creare un nuovo gruppo di risorse con un nome univoco (ad esempio, `my-ai-resources`) o selezionarne uno esistente*
+    - **Gruppo di risorse**: *creare o selezionare un gruppo di risorse*
     - **Posizione**: selezionare **Informazioni su come scegliere** e quindi selezionare **DALLE** nella finestra Helper posizione e usare l'area consigliata\*
-    - **Connettere i Servizi di Azure AI o Azure OpenAI**: *creare una nuova risorsa di Servizi di intelligenza artificiale con un nome appropriato (ad esempio, `my-ai-services`) o usarne uno esistente*
+    - **Connettere Servizi di Azure AI o Azure OpenAI**: *Creare una nuova risorsa di Servizi di AI*
     - **Connettere Azure AI Search**: ignorare la connessione
 
-    > \* Le risorse OpenAI di Azure sono vincolate dalle quote regionali a livello tenant. In caso di raggiungimento di un limite di quota più avanti nell'esercizio, potrebbe essere necessario creare un'altra risorsa in un'area diversa.
+    > \* Le risorse OpenAI di Azure sono vincolate dalle quote a livello di area. In caso di raggiungimento di un limite di quota più avanti nell'esercizio, potrebbe essere necessario creare un'altra risorsa in un'area diversa.
 
 1. Selezionare **Avanti** per esaminare la configurazione. Quindi selezionare **Crea** e attendere il completamento del processo.
 1. Quando viene creato il progetto, chiudere tutti i suggerimenti visualizzati e rivedere la pagina del progetto nel portale Fonderia di Azure AI, che dovrebbe essere simile all'immagine seguente:
@@ -39,12 +40,12 @@ Per iniziare, creare un progetto Fonderia Azure AI.
 
 A questo punto è possibile distribuire un modello DALL-E per supportare la generazione di immagini.
 
-1. Nella barra degli strumenti nella parte superiore destra della pagina del progetto Fonderia Azure AI, usare l'icona **Funzionalità di anteprima** per abilitare la funzionalità **Distribuisci modelli nel servizio di inferenza del modello di Azure per intelligenza artificiale**.
+1. Nella barra degli strumenti nella parte superiore destra della pagina del progetto Fonderia Azure AI, usare l'icona **Funzionalità di anteprima** per abilitare la funzionalità **Distribuisci modelli nel servizio di inferenza del modello di Azure per intelligenza artificiale**. Questa funzionalità garantisce che la distribuzione del modello sia disponibile per il servizio di inferenza di Azure AI, che verrà usato nel codice dell'applicazione.
 1. Nel riquadro a sinistra del progetto, nella sezione **Risorse personali** selezionare la pagina **Modelli + endpoint**.
 1. Nella scheda **Distribuzioni del modello** della pagina **Modelli + endpoint**, nel menu **+ Distribuisci modello** selezionare **Distribuisci modello di base**.
 1. Cercare il modello **DALL-E-3** nell'elenco e quindi selezionarlo e confermarlo.
 1. Accettare il contratto di licenza se richiesto e quindi distribuire il modello con le impostazioni seguenti selezionando **Personalizza** nei dettagli della distribuzione:
-    - **Nome distribuzione**: *nome univoco per la distribuzione del modello, ad esempio `dall-e-3` (ricordare il nome assegnato poiché sarà necessario in un secondo momento*)
+    - **Nome distribuzione**: *nome univoco per la distribuzione del modello*
     - **Tipo di distribuzione**: Standard
     - **Dettagli della distribuzione**: *usare le impostazioni predefinite*
 1. Attendere che lo stato di provisioning della distribuzione sia **completato**.
@@ -77,20 +78,20 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     > **Nota**: se in precedenza è stata creata una sessione Cloud Shell che usa un ambiente *Bash*, passare a ***PowerShell***.
 
-1. Nella barra degli strumenti di Cloud Shell scegliere **Vai alla versione classica** dal menu **Impostazioni**. Questa operazione è necessaria per usare l'editor di codice.
+5. Nella barra degli strumenti di Cloud Shell scegliere **Vai alla versione classica** dal menu **Impostazioni**. Questa operazione è necessaria per usare l'editor di codice.
 
-    > **Suggerimento**: quando si incollano i comandi in CloudShell, l'ouput può richiedere una grande quantità di buffer dello schermo. È possibile cancellare la schermata immettendo il `cls` comando per rendere più semplice concentrarsi su ogni attività.
+    **<font color="red">Verificare di passare alla versione classica di Cloud Shell prima di continuare.</font>**
 
-1. Nel riquadro PowerShell immettere i comandi seguenti per clonare il repository GitHub per questo esercizio:
+1. Nel riquadro Cloud Shell immettere i comandi seguenti per clonare il repository GitHub contenente i file di codice per questo esercizio (digitare il comando o copiarlo negli Appunti e quindi fare clic con il pulsante destro del mouse nella riga di comando e incollarlo come testo normale):
 
     ```
     rm -r mslearn-openai -f
     git clone https://github.com/microsoftlearning/mslearn-openai mslearn-openai
     ```
 
-> **Nota**: seguire i passaggi per il linguaggio di programmazione scelto.
+    > **Suggerimento**: quando si incollano i comandi in CloudShell, l'ouput può richiedere una grande quantità di buffer dello schermo. È possibile cancellare la schermata immettendo il `cls` comando per rendere più semplice concentrarsi su ogni attività.
 
-1. Dopo aver clonato il repository, passare alla cartella contenente i file di codice dell'applicazione:  
+1. Dopo aver clonato il repository, passare alla cartella specifica del linguaggio contenente i file del codice dell'applicazione, in base al linguaggio di programmazione preferito (Python o C#):  
 
     **Python**
 
@@ -109,10 +110,10 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
     **Python**
 
     ```
+   python -m venv labenv
+   ./labenv/bin/Activate.ps1
    pip install python-dotenv azure-identity azure-ai-projects openai requests
     ```
-
-    *È possibile ignorare gli errori relativi alla versione di pip e al percorso locale*
 
     **C#**
 
@@ -163,7 +164,8 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     **Python**
 
-    ```
+    ```python
+   # Add references
    from dotenv import load_dotenv
    from azure.identity import DefaultAzureCredential
    from azure.ai.projects import AIProjectClient
@@ -173,7 +175,8 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     **C#**
 
-    ```
+    ```csharp
+   // Add references
    using Azure.Identity;
    using Azure.AI.Projects;
    using Azure.AI.OpenAI;
@@ -185,7 +188,8 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     **Python**
 
-    ```
+    ```python
+   # Initialize the project client
    project_client = AIProjectClient.from_connection_string(
         conn_str=project_connection,
         credential=DefaultAzureCredential())
@@ -193,7 +197,8 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     **C#**
 
-    ```
+    ```csharp
+   // Initialize the project client
    var projectClient = new AIProjectClient(project_connection,
                         new DefaultAzureCredential());
     ```
@@ -202,14 +207,16 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     **Python**
 
-    ```
+    ```python
+   # Get an OpenAI client
    openai_client = project_client.inference.get_azure_openai_client(api_version="2024-06-01")
 
     ```
 
     **C#**
 
-    ```
+    ```csharp
+   // Get an OpenAI client
    ConnectionResponse connection = projectClient.GetConnectionsClient().GetDefaultConnection(ConnectionType.AzureOpenAI, withCredential: true);
 
    var connectionProperties = connection.Properties as ConnectionPropertiesApiKeyAuth;
@@ -227,6 +234,7 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
     **Python**
 
     ```python
+   # Generate an image
    result = openai_client.images.generate(
         model=model_deployment,
         prompt=input_text,
@@ -239,7 +247,8 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     **C#**
 
-    ```
+    ```csharp
+   // Generate an image
    var imageGeneration = await openAIimageClient.GenerateImageAsync(
             input_text,
             new ImageGenerationOptions()
@@ -275,15 +284,13 @@ Il modello sembra funzionare nel playground. A questo punto è possibile usare l
 
     > **Nota**: in questa semplice app non è stata implementata la logica per conservare la cronologia delle conversazioni, quindi il modello considererà ogni prompt come una nuova richiesta, senza il contesto del prompt precedente.
 
-1. Per scaricare e visualizzare le immagini generate dall'app, nella barra degli strumenti del riquadro Cloud Shell usare il pulsante **Carica/Scarica file** per scaricare un file e quindi aprirlo. Per scaricare un file, completare il relativo percorso del file nell'interfaccia di download; ad esempio:
+1. Per scaricare e visualizzare le immagini generate dall'applicazione, usare il comando Cloud Shell **download**, specificando il file PNG generato:
 
-    **Python**
+    ```
+   download ./images/image_1.png
+    ```
 
-    /home/*user*`/mslearn-openai/Labfiles/03-image-generation/Python/images/image_1.png`
-
-    **C#**
-
-    /home/*utente*`/mslearn-openai/Labfiles/03-image-generation/CSharp/images/image_1.png`
+    Il comando download crea un link popup in basso a destra del browser, che si può selezionare per scaricare e aprire il file.
 
 ## Riepilogo
 
