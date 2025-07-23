@@ -1,15 +1,5 @@
-#README
-
-We've turned off the ability to report issues directly on this repo and do not monitor PRs.
-
-Provide feedback here: https://aka.ms/provide-feedback
-
-Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
-
 # Sviluppare soluzioni di intelligenza artificiale con OpenAI di Azure
 
+> **NOTA**: Questo repository è in fase di archiviazione e non viene più gestito. Visitare il percorso di apprendimento [App di IA generativa](https://learn.microsoft.com/en-us/training/paths/create-custom-copilots-ai-studio/) e il [repository lab associato](https://github.com/MicrosoftLearning/mslearn-ai-studio) o la [documentazione di Fonderia Azure AI](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+
 Questo repository contiene le istruzioni e gli asset necessari per completare gli esercizi nel percorso di apprendimento [Sviluppare soluzioni di intelligenza artificiale con OpenAI di Azure](https://learn.microsoft.com/training/paths/develop-ai-solutions-azure-openai/) in Microsoft Learn.
-
-### Segnalazione di problemi
-
-Se si verificano problemi negli esercizi, segnalarli come **problemi** in questo repository.
